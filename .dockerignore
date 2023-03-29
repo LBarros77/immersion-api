@@ -1,0 +1,11 @@
+# docker
+docker*
+
+.idea
+.git
+
+.env.*
+build.sh
+docker*
+Procfile
+pyproject.toml

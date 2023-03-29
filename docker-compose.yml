@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  api:
+    build: .
+    container_name: immersion-api
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/home/immersion/api
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    container_name: immersion-db
+    tty: true
+    env_file: .env
+    environment:
+      - POSTGRES_DB=$PSG_DB
+      - POSTGRES_USER=$PSG_USER
+      - POSTGRES_PASSWORD=$PSG_PASSWORD
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # pgadmin:
+  #   image: dpage/pgadmin4
+  #   container_name: iniciando-django-pgadmin
+  #   tty: true
+  #   environment:
+  #     - PGADMIN_DEFAULT_EMAIL=admin@user.com
+  #     - PGADMIN_DEFAULT_PASSWORD=123456
+  #   ports:
+  #     - "9000:80"
+
+volumes:
+  eventors-pgdata:
+    external: true
