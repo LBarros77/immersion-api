@@ -6,6 +6,8 @@ docker*
 
 .env.*
 build.sh
-docker*
-Procfile
 pyproject.toml
+
+
+LICENSE
+README.md

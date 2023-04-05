@@ -1,4 +1,4 @@
-from python:3.11
+FROM python:3.8
 
 RUN useradd -ms /bin/bash dev
 
@@ -6,12 +6,12 @@ USER dev
 
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /home/immersion/api
+WORKDIR /home/dev/immersion-api
 
-ENV PATH $PATH:/home/immersion/.local/bin
+ENV PATH $PATH:/home/dev/.local/bin
 
-COPY requirements.txt /home/immersion/api
+COPY requirements.txt /home/dev/immersion-api
 
 RUN pip install -r requirements.txt
 
-COPY . /home/immersion/api
+COPY . /home/dev/immersion-api
