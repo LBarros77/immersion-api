@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 # coding: utf-8
 from decouple import config
 from pathlib import Path
-from dj_database_url import parse as db_url
+import dj_database_url as db_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'psycopg2',
+
+    # apps
     'api',
 ]
 
@@ -76,14 +79,16 @@ WSGI_APPLICATION = 'immersion.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES_URL = config('DATABASE_URL')
+DATABASE_URL = config('DATABASE_URL')
 
 try:
-    DATABASES['default'] = db_url(
-        DATABASES_URL,
-        conn_max_age=600,
-        conn_health_checks=True,
-    )
+    DATABASES = {
+        'default': db_url.config(
+            default=DATABASE_URL,
+            conn_max_age=600,
+            conn_health_checks=True,
+        ),
+    }
 except  Exception as e:
     print(e)
 
