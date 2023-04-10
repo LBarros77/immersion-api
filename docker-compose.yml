@@ -2,8 +2,7 @@ version: '3'
 
 services:
   api:
-    build: .
-    container_name: immersion
+    image: lbdev77/immersion-api
     command: python manage.py runserver 127.0.0.1:8000
     volumes:
       - .:/home/dev/immersion-api
