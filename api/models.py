@@ -11,9 +11,18 @@ class Son(models.Model):
 		return self.nome
 
 
+class Botao(models.Model):
+	titulo = models.CharField()
+	pause = models.BooleanField()
+	volume = models.FloatField()
+	loop = models.BooleanField()
+	son = models.ForeignKey(Son)
+
+
 class PlayList(models.Model):
-	titulo = models.CharField(maxLength=80)
-	son = models.ManyToManyField()
+	nome = models.CharField(maxLength=80)
+	image_url = models.Charfield(maxLength=100)
+	botao = models.ManyToManyField(Botao)
 
 	def __str__(self):
-		return titulo
+		return self.nome
