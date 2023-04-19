@@ -13,8 +13,8 @@ sudo apt install -y libxml2 gcc python3-dev libxml2-dev libxslt1-dev zlib1g-dev 
 sudo apt update
 ```
 
-Para que você tenha um ambiente de desenvolvimento o mais propício possível e não suge a sua máquina com muitas dependências que provavelmente você irá usar em um projeto é importante estabelecer um ambiente de desenvolvimento para cada projeto. Um dos ambientes mais utilizados para o desenvolvimento em Django é o Virtualenv e para quem já está familiarizado com Docker pode usá-lo também.
-[Virtualenv][https://virtualenv.pypa.io/en/latest/]
+Para que você tenha um ambiente de desenvolvimento o mais propício possível e não suje a sua máquina com muitas dependências que provavelmente você não irá usar em um outro projeto é importante estabelecer um ambiente de desenvolvimento para cada projeto. Um dos ambientes mais utilizados para o desenvolvimento em Django é o Virtualenv e para quem já está familiarizado com Docker pode usá-lo também.<br>
+[Virtualenv][https://virtualenv.pypa.io/en/latest/]<br>
 [Docker - Django][https://docs.docker.com/samples/django/]
 
 
@@ -24,7 +24,7 @@ Para que você tenha um ambiente de desenvolvimento o mais propício possível e
 pip install -r requirements.txt
 ```
 
-2. Gere um `.env` local baseado em .env.exemple
+2. Gere um `.env` local baseado em .env.example
 
 
 3. Sincronize a base de dados:
@@ -46,15 +46,14 @@ python manage.py runserver
 ```
 
 ## Instalação (Alternativa):
-2. Use o Docker compose
-
-```bash
-docker compose up --build
-```
-
-3. Crie um volume para o banco de dados
+2. Crie um volume para o banco de dados
 ```bash
 docker create volume immersion-pgdata
+```
+
+3. Use o Docker compose
+```bash
+docker compose up --build
 ```
 
 4. Sincronize a base de dados:
@@ -71,14 +70,12 @@ docker compose up
 
 ## Implementações
 - Login/Logout
-- Cadastro de pessoas JD / PJ
-- Criação de eventos
 - ...
 
 ## Tarefas para serem feitas
 - Implementações de models
 - Implementações de Views
-- Implementações de rotas
+- Implementações de routes
 
 ## Créditos
 - [Leonardo Barros][https://github.com/LBarros77]
